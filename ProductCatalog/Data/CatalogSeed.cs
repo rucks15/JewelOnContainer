@@ -11,32 +11,32 @@ namespace ProductCatalog.Data
             context.Database.Migrate();
 
             //when catalog table does not exist the following block executed
-            if (!context.catalogs.Any())
+            if (!context.catalogTypes.Any())
             {
-                context.catalogs.AddRange(GetCatalogs());
+                context.catalogTypes.AddRange(GetCatalogs());
                 context.SaveChanges();
             }
 
-            if (!context.brands.Any())
+            if (!context.catalogBrands.Any())
             {
-                context.brands.AddRange(GetBrands());
+                context.catalogBrands.AddRange(GetBrands());
                 context.SaveChanges();
             }
 
-            if (!context.items.Any())
+            if (!context.catalogItems.Any())
             {
-                context.items.AddRange(GetItems());
+                context.catalogItems.AddRange(GetItems());
                 context.SaveChanges();
             }
         }
 
-        private static IEnumerable<Catalog> GetCatalogs()
+        private static IEnumerable<CatalogType> GetCatalogs()
         {
-            return new List<Catalog>
+            return new List<CatalogType>
             {
-                new Catalog {CatalogType="Engagement Ring"},
-                new Catalog {CatalogType = "Wedding Ring"},
-                new Catalog {CatalogType = "Fashion Ring"}
+                new CatalogType {CatalogTypeName="Engagement Ring"},
+                new CatalogType {CatalogTypeName = "Wedding Ring"},
+                new CatalogType {CatalogTypeName = "Fashion Ring"}
             };
         }
 

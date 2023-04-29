@@ -16,20 +16,20 @@ namespace ProductCatalog.Data
         }
 
         //Create 3 tables based on class definition
-        public DbSet<Catalog> catalogs { get; set; }
-        public DbSet<CatalogBrand> brands { get; set; }
-        public DbSet<CatalogItem> items { get; set; }
+        public DbSet<CatalogType> catalogTypes { get; set; }
+        public DbSet<CatalogBrand> catalogBrands { get; set; }
+        public DbSet<CatalogItem> catalogItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Catalog>(e =>
+            modelBuilder.Entity<CatalogType>(e =>
             {
                 e.Property(t => t.ID).HasColumnName("ID")
                 .IsRequired()
                 .ValueGeneratedOnAdd();
 
-                e.Property(t => t.CatalogType).HasColumnType("text")
+                e.Property(t => t.CatalogTypeName).HasColumnType("text")
                 .IsRequired()
                 .HasMaxLength(100)
                 .HasColumnName("CatalogType");

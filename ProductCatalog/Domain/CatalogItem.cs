@@ -13,7 +13,7 @@
         public int CatalogBrandId { get; set; }
 
         //Navigation property
-        public virtual Catalog CatalogType { get; set; }
+        public virtual CatalogType CatalogType { get; set; }
         public virtual CatalogBrand CatalogBrand { get; set; }
 
     }

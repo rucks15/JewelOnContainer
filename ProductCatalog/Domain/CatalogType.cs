@@ -1,8 +1,8 @@
 ﻿namespace ProductCatalog.Domain
 {
-    public class Catalog
+    public class CatalogType
     {
         public int ID { get; set; }
-        public string CatalogType { get; set; }
+        public string CatalogTypeName { get; set; }
     }
 }

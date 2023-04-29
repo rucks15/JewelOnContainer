@@ -16,7 +16,8 @@ namespace ProductCatalog
 
             //Dependency injection happens from below code
             builder.Services.AddDbContext<CatalogContext>(
-                options => options.UseSqlServer(configuration["ConnectionString"])
+                options => options.UseSqlServer(configuration["ConnectionString"]),
+                ServiceLifetime.Transient
                 );
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
