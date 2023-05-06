@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using ProductCatalog.Domain;
+﻿using JewelWebClient.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace JewelWebClient.ViewModels
 {

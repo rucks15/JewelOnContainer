@@ -14,6 +14,7 @@ namespace JewelWebClient.Controllers
         public async Task<IActionResult> Index(int? page, int? brandFilterApplied, int? typeFilterApplied)
         {
             int itemsOnPage = 10;
+            // ?? If page is null keep it as 0; or page number
             var catalog = await _catalogService.GetCatalogItemAsync(page ?? 0, itemsOnPage, brandFilterApplied, typeFilterApplied);
 
             var vm = new CatalogItemIndexPage

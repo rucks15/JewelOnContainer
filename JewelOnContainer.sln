@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductCatalog", "ProductCa
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{6872E4FD-801D-47DD-91F3-C70684DD8BD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JewelWebClient", "JewelWebClient\JewelWebClient.csproj", "{77F91E1F-C27C-4AB9-9E8F-398A427E5203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelWebClient", "JewelWebClient\JewelWebClient.csproj", "{77F91E1F-C27C-4AB9-9E8F-398A427E5203}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TokenServiceAPI", "TokenServiceAPI\TokenServiceAPI.csproj", "{4EA298B3-A55B-479B-A63B-ADA574781B3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{77F91E1F-C27C-4AB9-9E8F-398A427E5203}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77F91E1F-C27C-4AB9-9E8F-398A427E5203}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77F91E1F-C27C-4AB9-9E8F-398A427E5203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EA298B3-A55B-479B-A63B-ADA574781B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EA298B3-A55B-479B-A63B-ADA574781B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EA298B3-A55B-479B-A63B-ADA574781B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EA298B3-A55B-479B-A63B-ADA574781B3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 		{1C525170-1793-4650-BE8A-CC40E05DE46F} = {3B20CCC1-1F34-4257-B5EB-79770747F0C2}
 		{943852BB-C6F7-4915-80B5-CD8208B64132} = {1C525170-1793-4650-BE8A-CC40E05DE46F}
 		{77F91E1F-C27C-4AB9-9E8F-398A427E5203} = {CC16B081-B6D1-4330-B8FB-28EBA3C3637E}
+		{4EA298B3-A55B-479B-A63B-ADA574781B3B} = {1C525170-1793-4650-BE8A-CC40E05DE46F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DEF0EDF-B1D4-472A-BBB1-7BEC4875B80B}

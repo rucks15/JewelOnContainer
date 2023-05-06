@@ -8,7 +8,7 @@ namespace JewelWebClient.ViewModels
         public long ItemsPerPage { get; set; }
         public int ActualPage { get; set; }
         public int TotalPages { get; set; }
-        public string previous { get; set; }
-        public string next { get; set; }
+        public string Previous { get; set; }
+        public string Next { get; set; }
     }
 }

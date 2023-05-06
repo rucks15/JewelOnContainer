@@ -1,4 +1,4 @@
-﻿using ProductCatalog.Domain;
+﻿using JewelWebClient.Models;
 
 namespace JewelWebClient.Models
 {

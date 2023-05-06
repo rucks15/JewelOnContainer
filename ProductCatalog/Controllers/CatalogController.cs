@@ -34,31 +34,6 @@ namespace ProductCatalog.Controllers
             return Ok(brands);
         }
 
-        /*[HttpGet("[action]")]
-        public async Task<IActionResult> CatalogItems(
-            [FromQuery]int PageIndex = 0, 
-            [FromQuery]int PageSize=3)
-        {
-            var itemsCount = _catalogContext.items.LongCountAsync();
-            var items = await _catalogContext.items
-                .OrderBy(c => c.ItemName)
-                .Skip(PageIndex * PageSize)
-                .Take(PageSize)
-                .ToListAsync();
-
-            items = ChangePictureUrl(items);
-
-            var model = new PaginatedItemViewModel
-            {
-                PageIndex = PageIndex,
-                PageSize = items.Count,
-                Data = items,
-                Count = itemsCount.Result
-            };
-
-            return Ok(model);
-        }*/
-
         [HttpGet("[action]/filter")]
         public async Task<IActionResult> CatalogItems(
             [FromQuery] int? catalogTypeId,
@@ -66,7 +41,6 @@ namespace ProductCatalog.Controllers
             [FromQuery] int PageIndex = 0,
             [FromQuery] int PageSize = 3)
         {
-            //Explicit casting of object catalogcontext to Queryable Table
             var query = (IQueryable<CatalogItem>) _catalogContext.catalogItems;
             if(catalogTypeId.HasValue)
             {
