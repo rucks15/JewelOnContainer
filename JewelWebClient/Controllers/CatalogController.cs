@@ -1,5 +1,6 @@
 ﻿using JewelWebClient.Services;
 using JewelWebClient.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JewelWebClient.Controllers
@@ -13,7 +14,7 @@ namespace JewelWebClient.Controllers
         }
         public async Task<IActionResult> Index(int? page, int? brandFilterApplied, int? typeFilterApplied)
         {
-            int itemsOnPage = 10;
+            int itemsOnPage = 3;
             // ?? If page is null keep it as 0; or page number
             var catalog = await _catalogService.GetCatalogItemAsync(page ?? 0, itemsOnPage, brandFilterApplied, typeFilterApplied);
 
@@ -34,5 +35,11 @@ namespace JewelWebClient.Controllers
             };
             return View(vm);
         }
+
+        [Authorize]
+        public IActionResult About()
+            {
+            return View();
+            }
     }
 }

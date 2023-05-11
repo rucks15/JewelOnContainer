@@ -33,11 +33,11 @@
 
                 if(string.IsNullOrEmpty(filterqy))
                 {
-                    preUri = $"{baseUrl}/items?PageIndex={page}&PageSize={take}";
+                    preUri = $"{baseUrl}/CatalogItems?PageIndex={page}&PageSize={take}";
                 }
                 else
                 {
-                    preUri = $"{baseUrl}/items?PageIndex={page}&PageSize={take}&{filterqy}";
+                    preUri = $"{baseUrl}/CatalogItems?PageIndex={page}&PageSize={take}&{filterqy}";
                 }
                 //API path from postman
                 return preUri;

@@ -12,7 +12,7 @@ namespace JewelWebClient.Services
         private readonly IHttpClient _httpclient;
         public CatalogService(IConfiguration configuration, IHttpClient httpClient)
         {
-            _baseUrl = $"{configuration["CatalogUrl"]}/api/catalog";
+            _baseUrl = $"{configuration["CatalogUrl"]}/api/Catalog";
             _httpclient = httpClient;
         }
 
@@ -36,7 +36,7 @@ namespace JewelWebClient.Services
                 items.Add(new SelectListItem
                 {
                     Value = item.Value<string>("id"),
-                    Text = item.Value<string>("brand")
+                    Text = item.Value<string>("brandName")
 
                 });
             }
@@ -48,7 +48,6 @@ namespace JewelWebClient.Services
             var CatalogItemsUri = APIPaths.Catalog.GetAllItems(_baseUrl, page, size, brand, type);
             var datastring = await _httpclient.GetStringAsync(CatalogItemsUri);
             return JsonConvert.DeserializeObject<Catalog>(datastring);
-
         }
 
         public async Task<IEnumerable<SelectListItem>> GetTypesAsync()
@@ -71,7 +70,7 @@ namespace JewelWebClient.Services
                 items.Add(new SelectListItem
                 {
                     Value = item.Value<string>("id"),
-                    Text = item.Value<string>("type")
+                    Text = item.Value<string>("catalogTypeName")
 
                 });
             }

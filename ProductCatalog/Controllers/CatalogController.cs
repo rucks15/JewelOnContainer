@@ -34,12 +34,39 @@ namespace ProductCatalog.Controllers
             return Ok(brands);
         }
 
-        [HttpGet("[action]/filter")]
+        /*[HttpGet("[action]")]
+        public async Task<IActionResult> CatalogItems(
+            [FromQuery] int PageIndex,
+            [FromQuery] int PageSize)
+            {
+        
+            var local_items = await _catalogContext.catalogItems
+                .OrderBy(c => c.ItemName)
+                .Skip(PageIndex * PageSize)
+                .Take(PageSize)
+                .ToListAsync();
+
+            local_items = ChangePictureUrl(local_items);
+
+            long local_itemsCount = local_items.Count();
+
+            var model = new PaginatedItemViewModel
+                {
+                PageIndex = PageIndex,
+                PageSize = local_items.Count,
+                Data = local_items,
+                Count = local_itemsCount
+                };
+
+            return Ok(model);
+            }*/
+
+        [HttpGet("[action]")]
         public async Task<IActionResult> CatalogItems(
             [FromQuery] int? catalogTypeId,
             [FromQuery] int? catalogBrandId,
-            [FromQuery] int PageIndex = 0,
-            [FromQuery] int PageSize = 3)
+            [FromQuery] int PageIndex,
+            [FromQuery] int PageSize)
         {
             var query = (IQueryable<CatalogItem>) _catalogContext.catalogItems;
             if(catalogTypeId.HasValue)

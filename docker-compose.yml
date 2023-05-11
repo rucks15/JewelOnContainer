@@ -8,8 +8,8 @@ services:
   productcatalog:
     image: jewels/catalog
     build:
-      context: .
-      dockerfile: ProductCatalog/Dockerfile
+      context: .\ProductCatalog
+      dockerfile: Dockerfile
     environment:
       ConnectionString: "Data Source=mssqlserver;Initial Catalog=CatalogDb;User Id=sa;Password=ProductApi123(!);Connect Timeout=30;TrustServerCertificate=false;"
       ExternalBaseUrl: http://localhost:7000
@@ -46,6 +46,8 @@ services:
       dockerfile: Dockerfile
     environment:
       CatalogUrl: http://productcatalog
+      IdentityUrl: http://172.22.32.1:7800
+      CallbackUrl: http://localhost:7500
     ports:
       - "7500:80"
     container_name: webshop
@@ -53,6 +55,7 @@ services:
       - frontend
     depends_on:
       - productcatalog
+      - tokensqlserver
 
 
   mssqlserver:
