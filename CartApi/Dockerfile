@@ -8,13 +8,13 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY . .
-RUN dotnet restore "ProductCatalog.csproj"
-RUN dotnet build "ProductCatalog.csproj" -c Release -o /app/build
+RUN dotnet restore "CartApi.csproj"
+RUN dotnet build "CartApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ProductCatalog.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "CartApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ProductCatalog.dll"]
+ENTRYPOINT ["dotnet", "CartApi.dll"]
