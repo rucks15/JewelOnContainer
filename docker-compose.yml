@@ -30,6 +30,8 @@ services:
     environment:
       ConnectionString: "Data Source=mssqlserver;Initial Catalog=TokenServiceDb;User Id=sa;Password=ProductApi123(!);Connect Timeout=30;TrustServerCertificate=false;Encrypt=false;"
       MvcClient: http://localhost:7500
+      BasketApiClient: http://localhost:7010
+      OrderApiClient: http://localhost:7200
     ports:
       - "7800:80"
     container_name: jewelstokenapi

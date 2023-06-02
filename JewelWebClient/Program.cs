@@ -17,6 +17,8 @@ builder.Services.AddTransient<ICatalogService, CatalogService>();
 builder.Services.AddTransient<IIdentityService<ApplicationUser>, IdentityService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<ICartService, CartService>();
+builder.Services.AddTransient<IOrderService,OrderService>();
+
 var identityUrl = configuration["IdentityUrl"];
 var callBackUrl = configuration["CallbackUrl"];
 
@@ -43,7 +45,7 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Add("profile");
         options.Scope.Add("order");
         options.Scope.Add("basket");
-        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+        options.TokenValidationParameters = new TokenValidationParameters()
             {
             NameClaimType = "name",
             RoleClaimType = "role",
