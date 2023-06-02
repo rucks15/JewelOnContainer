@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace WebMvc.Models
+namespace JewelWebClient.Models
     {
     public class ApplicationUser : IdentityUser
         {

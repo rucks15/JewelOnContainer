@@ -1,5 +1,6 @@
 using JewelWebClient.Infrastructure;
 using JewelWebClient.Services;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using TokenServiceAPI.Models;
@@ -14,7 +15,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IHttpClient, CustomHttpClient>();
 builder.Services.AddTransient<ICatalogService, CatalogService>();
 builder.Services.AddTransient<IIdentityService<ApplicationUser>, IdentityService>();
-
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddTransient<ICartService, CartService>();
 var identityUrl = configuration["IdentityUrl"];
 var callBackUrl = configuration["CallbackUrl"];
 

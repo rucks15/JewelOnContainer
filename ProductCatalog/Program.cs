@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using ProductCatalog.Data;
 
@@ -16,8 +15,7 @@ namespace ProductCatalog
 
             //Dependency injection happens from below code
             builder.Services.AddDbContext<CatalogContext>(
-                options => options.UseSqlServer(configuration["ConnectionString"]),
-                ServiceLifetime.Transient
+                options => options.UseSqlServer(configuration["ConnectionString"])
                 );
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
